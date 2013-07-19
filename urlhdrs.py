@@ -25,7 +25,10 @@ def output_headers(url_file):
 		print(url_file.info())
 
 def main():
-	url_name = 'http://' + sys.argv[1]
+	if 'http' in sys.argv[1]:
+		url_name = sys.argv[1]
+	else:	
+		url_name = 'http://' + sys.argv[1]
 	url_file = urlopen(url_name)
 	output_headers(url_file)
 	
