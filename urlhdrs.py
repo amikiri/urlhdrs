@@ -10,12 +10,14 @@ def output_headers(url_file):
 #		print("USAGE: urlhdrs.py url output_file")
 	if len(sys.argv) > 2:
 		output_file = open(sys.argv[2], 'a')
-		url_name = str(url_file.geturl())
-		output_file.write(url_name + "\n")
+		url_actual = str(url_file.geturl())
+		output_file.write('+' * len(url_actual) + '\n')
+		output_file.write(url_actual + "\n")
+		output_file.write('+' * len(url_actual) + '\n')
 		url_info = str(url_file.info())
 		output_file.write(url_info + "\n")
-		print(url_file.geturl())
-		print(url_file.info())
+		#print(url_file.geturl())
+		#print(url_file.info())
 	else:
 		print("No output specified. Printing to terminal.")
 		print("*" * 20)
@@ -23,7 +25,8 @@ def output_headers(url_file):
 		print(url_file.info())
 
 def main():
-	url_file = urlopen(sys.argv[1])
+	url_name = 'http://' + sys.argv[1]
+	url_file = urlopen(url_name)
 	output_headers(url_file)
 	
 if __name__ == "__main__":
