@@ -4,6 +4,7 @@
 import sys, os
 from urllib.request import urlopen
 
+
 def output_headers(url_file):
     ''' Controls the output of the headers '''
 #   if len(sys.argv) < 2:
@@ -23,6 +24,7 @@ def output_headers(url_file):
         print("*" * 20)
         print(url_file.geturl())
         print(url_file.info())
+
 
 def main():
     if 'http' in sys.argv[1]:
